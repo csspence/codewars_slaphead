@@ -16,6 +16,27 @@ So for this head: "------/------" you shoud return:
 ["-------------", "Unicorn"]
 */
 
-function bald(x){
+const bald = (x) => {
+  let hairs = 0;
+  let str = '';
+  for(let i = 0; i < x.length; i++) {
+    if(x[i] === '/') {
+      hairs++;
+      str += '-';
+    } else {
+      str += x[i];
+    }
+  }
 
+  if(hairs === 0) {
+    return [str, 'Clean!'];
+  } else if(hairs === 1) {
+    return [str, 'Unicorn!'];
+  } else if(hairs === 2) {
+    return [str, 'Homer!'];
+  } else if(hairs === 3 || hairs === 4 || hairs === 5) {
+    return [str, 'Careless!'];
+  } else {
+    return [str, 'Hobo!'];
+  }
 }
